@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Верстаем email-письма</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="styles/screen-16x10.css">
+</head>
+
+<body class="shower list">
+  <section class="slide">
+    <h2 class="place shout">Верстаем<br>email-письма</h2>
+  </section>
+  <section class="slide">
+    <style>
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .images img {
+        margin-bottom: 10px;
+        max-height: 96px;
+        width: auto;
+        height: auto;
+      }
+    </style>
+    <h2>Рынок почтовых клиентов</h2>
+    <div class="images">
+      <img class="next" src="./images/mail-icon-email.png" alt="">
+      <img class="next" src="./images/apple-imail.png" alt="">
+      <img class="next" src="./images/Mail-Android-R.png" alt="">
+      <img class="next" src="./images/gmail.png" alt="">
+      <img class="next" src="./images/Google_Inbox_by_Gmail_Logo.png" alt="">
+      <img class="next" src="./images/google-apps.png" alt="">
+      <img class="next" src="./images/thunderbird.png" alt="">
+      <img class="next" src="./images/thebat.svg" alt="">
+      <img class="next" src="./images/yandex.png" alt="" />
+      <img class="next" src="./images/mail.ru.png" alt="">
+      <img class="next" src="./images/rambler.png" alt="">
+      <img class="next" src="./images/outlook_express.gif" alt="">
+      <img class="next" src="./images/outlook_2003_icon.jpg" alt="">
+      <img class="next" src="./images/outlook-2010.jpg" alt="">
+      <img class="next" src="./images/Microsoft_Outlook_2013_logo.svg" alt="">
+      <img class="next" src="./images/Windows-Live-Mail-Logo.png" alt="">
+      <img class="next" src="./images/opera-mail.png" alt="">
+      <img class="next" src="./images/Hotmail.png" alt="">
+      <img class="next" src="./images/notes32b256p.png" alt="">
+      <img class="next" src="./images/aol.jpg" alt="">
+      <img class="next" src="./images/yahoo-mail-logo.jpg" alt="">
+    </div>
+    <a href="http://emailclientmarketshare.com/" class="next">Рейтинг</a>
+  </section>
+  <section class="slide">
+    <h2>Просто <span class="next">старая</span><span class="next"> обрезанная </span>вёрстка</h2>
+    <ul>
+      <li class="next">Следуй спецификации HTML 4.0 или 4.1
+        <div>
+          <code class="mark" style="font-size: 0.85em;padding: .4em 0;">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;</code>
+        </div>
+      </li>
+      <li class="next">Указывай кодировку
+        <div>
+          <code class="mark" style="font-size: 0.85em;padding: .4em 0;">&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</code>
+        </div>
+      </li>
+      <li class="next">Но не используй Unicode-символов, которых нет в windows-1251</li>
+      <li class="next">Основной инструмент - таблицы. Проблемные таблицы...</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Только допустимые теги и атрибуты</h2>
+    <div class="">
+      <img src="./images/tags.png" alt="" style="max-height: 360px;">
+    </div>
+  </section>
+  <section class="slide">
+    <h2>Лечим теги, Айболит</h2>
+    <ul>
+      <li class="next">Таблицам следует обнулять все отступы
+        <div>
+          <code class="mark" style="font-size: 0.85em;padding: .4em 0;">&lt;table cellpadding="0" cellspacing="0" style="margin: 0; padding: 0; border-collapse: collapse;"&gt;</code>
+        </div>
+      </li>
+      <li class="next">Оставляем пустым <code>title</code> для Android</li>
+      <li class="next">Оборачиваем письмо в <code class="mark" style="font-size: 0.85em;padding: .4em 0;">&lt;div id="mailsub"&gt;</code> от отступов в Mail.ru</li>
+      <li class="next">Инлайним все стили! Подключаемые файлы стилей плохо работают</li>
+      <li class="next">Использовать как можно меньше <code>div</code>ов (в outlook'е лишние отступы)</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Картинки любят внимание</h2>
+    <ul>
+      <li class="next">Для важных картинок - только тег <code class="mark">img</code>, без <code class="mark">areamap</code></li>
+      <li class="next">Для неважных в фоне - атрибут <code class="mark">background</code> (не в outlook<sup style="color: red">*</sup>)</li>
+      <li class="next" style="list-style:none;position: absolute; bottom: 20px;right: 20px;font-size:16px;line-height: 1em;">
+        <p>* только <code class="mark">background-image</code> для <code class="mark">body</code> или <a href="http://snipplr.com/view/64348/applying-background-images-to-table-cells--blog--campaign-monitor/">так</a>, <a href="http://tools.emailmatrix.ru/bg/">так</a>          или <a href="https://backgrounds.cm/">так</a></p>
+        <p>&nbsp;&nbsp;&nbsp;без <code class="mark">background-position</code> и без <code class="mark">background-repeat</code></p>
+      </li>
+      <li class="next">Обязательно указывать как минимум ширину <code class="mark">width: 100%</code></li>
+      <li class="next">Обязательно обнулять границы картинки <code class="mark">border: 0</code></li>
+      <li class="next">Желательно обнулять высоту строки картинки <code class="mark">line-height: 0</code></li>
+      <li class="next">Между img и закрытием ячейки таблицы <b>не должно быть</b> пробелов и переносов строк <code class="mark">&lt;img src"..."&gt;&lt;/td&gt;</code></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Нужно больше <s>золота</s> внимания</h2>
+    <ul>
+      <li class="next">Нужно хранить картинки рассылок на своих серверах. Навсегда</li>
+      <li class="next">В связи с этим нужно указывать абсолютные пути</li>
+      <li class="next">Чтобы заменить картинку, используй новый путь. Они кэшируются</li>
+      <li class="next">Нельзя использовать png. Только jpg и gif</li>
+      <li class="next">Учитывайте, что gif не анимируется в outlook - остаётся первый кадр</li>
+      <li class="next">Можно кодировать в base64, но нужно следить за весом письма</li>
+      <li class="next">Часто приходится нарезать картинки на части</li>
+    </ul>
+  </section>
+  <section class="slide" data-timing="00:03">
+    <h2 class="place shout">Оформляй</h2>
+  </section>
+  <section class="slide">
+    <h2>Стили</h2>
+    <ul>
+      <li class="next">Фиксированная максимальная ширина - от 600px до 800px</li>
+      <li class="next">Полные HEX-цвета, не капс. НЕТ: <code class="mark">color: #DDD</code>, ДА: <code class="mark">color: #dddddd</code></li>
+      <li class="next">Никакого абсолютного позиционирования</li>
+      <li class="next">Без составных правил - только простые стили</li>
+      <li class="next">Никаких тегов списков, имитируйте их символом &#8226; (<code>&amp;#8226;</code>)</li>
+      <li class="next">Обращение к классам - через атрибут class, а не через точку <code class="mark">[class="block"] {...}</code>, а не <code class="mark">.block {...}</code></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Стили</h2>
+    <ul>
+      <li class="next">Никаких псевдо-элементов (<code>:before</code>, <code>:after</code> и т.п.)</li>
+      <li class="next">Никаких составных селекторов (<code>.title + .body</code>)</li>
+      <li class="next">Медиа-выражения уже работают в gmail (с 2016)</li>
+      <li class="next">Скрытие <mark>display: none</mark> работает в gmail (с 2016)</li>
+      <li class="next">Не надо делать горизонтальные отступы ячейкой таблицы с символом пробела <code>&amp;nbsp;</code> с размером шрифта или gif'кой 5px<br>Смело можно использовать padding (кроме тегов <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code> и <code>&lt;a&gt;</code>)</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Только допустимые css-свойства</h2>
+    <div class="">
+      <img src="./images/css.png" alt="" style="max-height: 360px;">
+    </div>
+  </section>
+  <section class="slide">
+    <h2>Все правила</h2>
+    <ul>
+      <li><a href="https://www.campaignmonitor.com/css/">The Ultimate Guide to CSS</a></li>
+      <li><a href="http://templates.mailchimp.com/resources/email-client-css-support/">Email Client CSS Support</a></li>
+    </ul>
+    <div class="next">
+      <h2>Проверка онлайн</h2>
+      <ul>
+        <li><a href="https://litmus.com/">Litmus</a></li>
+        <li><a href="https://putsmail.com/">Putsmail</a></li>
+        <li><a href="http://www.inboxinspector.com/">Inbox Inspector</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <h2>Шрифты</h2>
+    <pre style="font-size: 0.8em;"><code>font-family: Arial, Helvetica, sans-serif;
+font-family: 'Arial Black', Gadget, sans-serif;
+font-family: Georgia, serif;
+font-family: 'MS Sans Serif', Geneva, sans-serif;
+font-family: 'MS Serif', 'New York', sans-serif;
+font-family: Tahoma, Geneva, sans-serif;
+font-family: 'Times New Roman', Times, serif;
+font-family: 'Trebuchet MS', Helvetica, sans-serif;
+font-family: Verdana, Geneva, sans-serif;
+</code></pre>
+  </section>
+  <section class="slide">
+    <h2>Адаптивность писем</h2>
+    <ul>
+      <li class="next">Desktop first</li>
+      <li class="next">Медиа-выражения: не min-width, а max-device-width</li>
+      <li class="next">Float'инг колонок</li>
+      <li class="next">Подмена фона со скрытием <code class="mark">img</code></li>
+      <li class="next"><code>label</code> должны быть всегда сверху</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Адаптивность писем</h2>
+    <ul>
+      <li>Обязательно применяй <code>text-size-adjust: 100%</code> для iPhone</li>
+      <li class="next">Обязательно отключай зум
+        <div>
+          <code class="mark" style="font-size: 0.8em;padding: .4em 0;">&lt;meta name="viewport" content="width=device-width, user-scalable=no" /&gt;</code>
+        </div>
+      </li>
+      <li class="next">Адаптивность картинок: <code class="mark">max-width: 100%; height: auto</code></li>
+      <li class="next">Retina-ready картинки - @2x</li>
+      <li class="next">Используй соответствующие типы инпутов: tel, email, number, date, datetime, search, url</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Динамика в письмах</h2>
+    <p>Измененяй состояния при наведении и фокусе, без JS</p>
+    <pre>
+<code>.content {
+  display: none;
+}
+<mark>.title:hover + .content</mark> {
+  display: block;
+}</code>
+</pre>
+  </section>
+  <section class="slide">
+    <h2>Думай о пользователе</h2>
+    <ul>
+      <li class="next">Укажи <code class="mark">target="_blank"</code> ссылкам</li>
+      <li class="next">Укажи ссылку на просмотр письма в браузере</li>
+      <li class="next">Укажи ссылку на отписку от вашей рассылки</li>
+      <li class="next">Оставляй отступы вокруг контента не менее 10px, чтобы контент не заезжал на границы</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Текст письма</h2>
+    <ul>
+      <li class="next">Контролируй содержимое subject письма и первые строки</li>
+      <li class="next">Уделяй внимание триггерным письмам</li>
+      <li class="next">Завлекай gif-счётчиками до окончания акции</li>
+      <li class="next">Персонализируй</li>
+      <li class="next">Локализуй</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Держи в ежовых рукавицах</h2>
+    <ul>
+      <li class="next">Анализируй переходы из писем при помощи utm-меток</li>
+      <li class="next">Анализируй открытия писем картинками с бэкэндом</li>
+      <li class="next">Дели пользователей на группы a/b-тестирования, определяя лучший вариант письма</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>UTM-метки</h2>
+    <ul style="line-height: 1.9em;">
+      <li class="next">Источник кампании - utm_source.
+        <p class="note" style="display: inline;">пример: newsletter</p>
+      </li>
+      <li class="next">Канал кампании - utm_medium
+        <p class="note" style="display: inline;">пример: email</p>
+      </li>
+      <li class="next">Название кампании - utm_campaign
+        <p class="note" style="display: inline;">пример: cats-lecture</p>
+      </li>
+      <li class="next">Ключевое слово - utm_term
+        <p class="note" style="display: inline;">пример: cats</p>
+      </li>
+      <li class="next">Содержание кампании - utm_content
+        <p class="note" style="display: inline;">пример: header</p>
+      </li>
+      <li class="next">Ссылка с UTM-метками: <code>https://fogrew.site/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=cats-lecture&amp;utm_content=header&amp;utm_term=cats</code></li>
+      <li class="next" style="position: absolute; bottom: 20px;right: 20px;font-size:9px;line-height: 1em;"><a href="http://utmurl.ru/">компоновщик utm-меток</a></li>
+    </ul>
+  </section>
+  <section class="slide" data-timing="00:03">
+    <h2 class="place shout">Упрощай</h2>
+  </section>
+  <section class="slide">
+    <h2>Веб-сервисы</h2>
+    <ul>
+      <li class="next"><a href="http://mailchimp.com/">Mailchimp</a></li>
+      <li class="next"><a href="https://maildeveloper.com/">Mail Developer</a></li>
+      <li class="next"><a href="https://www.campaignmonitor.com/">Campaign Monitor</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Инлайнинг стилей онлайн</h2>
+    <ul>
+      <li><a href="https://inliner.cm/">inliner.cm</a></li>
+      <li><a href="https://putsmail.com/inliner">PutsMail Inliner</a></li>
+      <li><a href="http://templates.mailchimp.com/resources/inline-css/">MailChimp</a></li>
+      <li><a href="http://foundation.zurb.com/emails/inliner.html">ZURB Inliner</a></li>
+      <li><a href="http://automattic.github.io/juice/">Juice</a></li>
+      <li><a href="https://www.myintervals.com/emogrifier.php">Emogrifier</a></li>
+      <li><a href="http://premailer.dialect.ca/">Premailer</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Сборники шаблонов</h2>
+    <ul>
+      <li class="next"><a href="http://responsiveemailpatterns.com/">Responsive Email Patterns</a></li>
+      <li class="next"><a href="http://templates.mailchimp.com/">Mailchimp Templates</a></li>
+      <li class="next"><a href="https://github.com/mailchimp/Email-Blueprints">Mailchimp Email-Blueprints</a></li>
+      <li class="next"><a href="https://www.campaignmonitor.com/email-templates/">Campaign Monitor</a></li>
+      <li class="next"><a href="http://foundation.zurb.com/emails/email-templates.html">ZURB</a></li>
+      <li class="next"><a href="http://beefree.io/">Bee free</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Почитать на досуге</h2>
+    <ul>
+      <li><a href="https://habrahabr.ru/blogs/webdev/106387/">Грабли при верстке HTML</a></li>
+      <li><a href="https://habrahabr.ru/blogs/css/112163/">Верстка почтовых рассылок</a></li>
+      <li><a href="https://habrahabr.ru/blogs/css/112307/">С версткой почтовых рассылок все не так уж плохо</a></li>
+      <li><a href="https://habrahabr.ru/blogs/css/114119/">Верстка почтовых рассылок: взгляд изнутри</a></li>
+      <li><a href="https://habrahabr.ru/blogs/css/114234/">Верстка почтовых рассылок: разбор полетов</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Почитать на досуге</h2>
+    <ul>
+      <li><a href="https://habrahabr.ru/company/sibirix/blog/114472/">Верстка e-mail рассылок — «подводные камни». Часть первая. Картинки</a></li>
+      <li><a href="https://habrahabr.ru/company/sibirix/blog/114619/">Верстка e-mail рассылок — «подводные камни». Часть вторая. Якоря</a></li>
+      <li><a href="https://habrahabr.ru/post/113709/">Юзабилити почтовых рассылок</a></li>
+      <li><a href="https://habrahabr.ru/company/pechkin/blog/255819/">How-to: Правила вёрстки email-писем</a></li>
+      <li><a href="https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848">Адаптивные письма без медиавыражений</a></li>
+      <li><a href="https://pitercss.ru/4/pres/email.pdf">Презентация "Письмо другу. Небольшие хитрости"</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Рекомендую подписаться</h2>
+    <ul>
+      <li><a href="https://litmus.com/blog/">Litmus Blog</a></li>
+      <li><a href="http://blog.mailchimp.com/">MailChimp Blog</a></li>
+      <li><a href="https://blog.getresponse.ru/">GetResponse Blog</a></li>
+      <li><a href="https://soviet.glvrd.ru/">Советы Главреда</a></li>
+      <li><a href="https://vk.com/marketing_email">Несмешной e-mail маркетинг</a></li>
+    </ul>
+  </section>
+  <div class="progress"></div>
+  <script src="./shower/shower.min.js"></script>
+</body>
+
+</html>
